@@ -1,0 +1,28 @@
+version: "2.0"
+
+stories:
+
+- story: Welcome
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_name
+  - intent: name
+  - action: utter_storytelling
+
+
+- story: storytelling_yes
+  steps: 
+  - action: utter_storytelling
+  - intent: affirm
+  - action: utter_yes
+  - action: utter_thanks
+
+- story: storytelling_no
+  steps: 
+  - action: utter_storytelling
+  - intent: deny
+  - action: utter_no
+  
+
+  
