@@ -1,0 +1,74 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - storytelling
+
+entities:
+- storytelling
+- name
+
+slots:
+ storytelling: 
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+ name:  
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: "Hey I'm Rig your chatbot assistant."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_name:
+  - text: "Could you tell me your name?"
+
+  utter_storytelling:
+  - text: "Are you interested in storytelling?"
+    buttons:
+    - payload: /affirm{{"storytelling":"Yes"}}
+      title: Yes
+    - payload: /deny{{"storytelling":"No"}}
+      title: No
+
+  utter_yes: 
+  - text: "Great! Check our website to participate in the weekly contests in storytelling and win exciting prizes."
+  
+  utter_no:
+  - text: "Thanks. Please visit our website and check for other courses we are offering."
+
+  utter_thanks:
+  - text: "Thank you. PLease visit again."
+
+actions:
+- action_storytelling
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
