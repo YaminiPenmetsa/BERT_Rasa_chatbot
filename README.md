@@ -7,5 +7,5 @@ The basic architecture used for the Rasa NLU pipeline is
 1. Tokenizer - LanguageModelTokenizer
 2. Featurizer - LanguageModelFeaturizer,RegexFeaturizer
 3. Intent classifier and Entity extractor - DIETClassifier
-4. 
+
 
